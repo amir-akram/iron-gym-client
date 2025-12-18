@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -15,12 +16,24 @@ export default function Navbar() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 text-white">
           
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-lg font-semibold tracking-wide"
-          >
-            IRON GYM
-          </Link>
+      {/* Logo */}
+<Link href="/" className="flex items-center">
+  <Image
+    src={require("@/logos/logo.png")}
+    alt="Iron Gym Logo"
+    width={140}
+    height={48}
+    priority
+    className="
+      object-contain
+      max-h-10
+      w-auto
+      sm:max-h-11
+      md:max-h-12
+    "
+  />
+</Link>
+
 
           {/* Desktop Links */}
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
@@ -35,18 +48,24 @@ export default function Navbar() {
             </a>
 
             <Link href="/pay-fees">
-              <Button
-                className="
-                  rounded-full
-                  bg-rose-600/90
-                  hover:bg-rose-600
-                  shadow-lg shadow-rose-600/20
-                "
-              >
-                Pay Fees
-              </Button>
-            </Link>
-          </nav>
+  <Button
+    className="
+      rounded-full
+      font-bold
+      bg-white
+      hover:bg-gray-100
+      shadow-lg
+      text-transparent
+      bg-clip-text
+      bg-linear-to-r
+      from-rose-500
+      to-pink-600
+    "
+  >
+    Pay Fees
+  </Button>
+</Link>
+         </nav>
 
           {/* Mobile Menu Button */}
           <button
@@ -90,8 +109,11 @@ export default function Navbar() {
                 className="
                   mt-2
                   w-full
+                  font-bold
                   rounded-full
-                  bg-rose-600/90
+                   bg-linear-to-r
+      from-rose-500
+      to-pink-600
                   hover:bg-rose-600
                 "
               >
